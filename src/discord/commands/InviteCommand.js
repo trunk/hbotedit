@@ -12,18 +12,13 @@ class InviteCommand extends DiscordCommand {
   onCommand(message) {
     let args = this.getArgs(message)
     let user = args.shift()
-    let i=0
-    const sleepNow = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
-    async function repeatedGreetingsLoop() {
-      while (i<10){
-        this.sendMinecraftMessage(`/p invite ${user}`);
-        await sleepNow(500)
-        this.sendMinecraftMessage(`/p disband`)
-        await sleepNow(500)
-        i++
-      }
-      }
+    while (i<10){   
+      this.sendMinecraftMessage(`/p invite ${user}`);
+      setTimeout(() => { this.sendMinecraftMessage(`/p disband`); }, 500);
+      setTimeout(() => { i++ }, 600);
     }
-  }
+      }
+      }
+  
 
 module.exports = InviteCommand
