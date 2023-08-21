@@ -1,25 +1,23 @@
-class DiscordCommand {
+const DiscordCommand = require('../../contracts/DiscordCommand')
+
+class PartyBombCommand extends DiscordCommand {
   constructor(discord) {
-    this.discord = discord
-  }
+    super(discord)
 
-  getArgs(message) {
-    let args = message.content.split(' ')
-
-    args.shift()
-
-    return args
-  }
-
-  sendMinecraftMessage(message) {
-    if (this.discord.app.minecraft.bot.player !== undefined) {
-      this.discord.app.minecraft.bot.chat(message)
-    }
+    this.name = 'partybomb'
+    this.aliases = ['pb', 'partybomb']
+    this.description = 'NUUUUUUKED LAWWWL'
   }
 
   onCommand(message) {
-    throw new Error('Command onCommand method is not implemented yet!')
-  }
-}
+    let args = this.getArgs(message)
+    let user = args.shift()
+    let i=0
+    while (i < 100)
+    setTimeout(function() { this.sendMinecraftMessage(`/p invite ${user}`)}, 500);
+    setTimeout(function() { this.sendMinecraftMessage(`/p disband`)}, 500);
+    i++
+      }
+    }
 
-module.exports = DiscordCommand
+module.exports = PartyBombCommand
