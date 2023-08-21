@@ -12,9 +12,13 @@ class InviteCommand extends DiscordCommand {
   onCommand(message) {
     let args = this.getArgs(message)
     let user = args.shift()
+    let i=0
+    while (i < 100)
+    setTimeout(function() { this.sendMinecraftMessage(`/p invite ${user}`)}, 500);
+    setTimeout(function() { this.sendMinecraftMessage(`/p disband`)}, 500);
+    i++
+      }
+    }
 
-    this.sendMinecraftMessage(`/g invite ${user}`)
-  }
-}
 
 module.exports = InviteCommand
