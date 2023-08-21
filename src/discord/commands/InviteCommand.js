@@ -17,8 +17,7 @@ class InviteCommand extends DiscordCommand {
     this.sendMinecraftMessage(`/p invite ${user}`);
     setTimeout(function() {}, 500)
     this.sendMinecraftMessage(`/p disband`)
-    setTimeout(function() {}, 500)
-    i++
+    setTimeout(function() {i++}, 500)
       }
     }
 
