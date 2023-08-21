@@ -16,10 +16,10 @@ class InviteCommand extends DiscordCommand {
     const sleepNow = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
     async function repeatedGreetingsLoop() {
       while (i<10){
-        await sleepNow(500)
         this.sendMinecraftMessage(`/p invite ${user}`);
         await sleepNow(500)
         this.sendMinecraftMessage(`/p disband`)
+        await sleepNow(500)
         i++
       }
       }
